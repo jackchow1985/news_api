@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+  </head>
+  <body>
+  	<div class="panel panel-default">
+  		<div class="panel-heading">期货</div>
+  		<div class="panel-body">
+		    <ul>
+				<% for(var i=0; i<jsonObj.result.length; i++) { %>
+				   <li>
+				   		<a target="_blank" href="<%= jsonObj.result[i].url%>"><%= jsonObj.result[i].title%></a>
+				   		<span class="date"><%= jsonObj.result[i].date%></span>
+				   </li>
+				<% } %>
+			</ul>
+		</div>
+	</div>
+  </body>
+</html>
