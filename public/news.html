@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="newsApp">
+  <head >
+    <title></title>
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <link rel="stylesheet" href="/stylesheets/font-awesome.min.css">
+    <script src="/javascripts/angular.min.js"></script>
+    <script src="/javascripts/app.js"></script>
+  </head>
+  <body ng-controller="NewsListController as newsCrtl"> 
+  	<div class="row" >
+  		<div class="col-md-5" >
+		  	<div class="panel panel-default">
+		  		<div class="panel-heading">外汇 <i class="fa fa-refresh pull-right" ng-click="reload(0)"></i>
+		  		<i class="fa fa-file-image-o pull-right" ng-click="hideImg(0)" title="show/hide images"></i></div>
+		  		<div class="panel-body">
+				    <ul >
+				    <i ng-hide="loaded0" class="fa fa-spin fa-spinner"></i>
+					   <li ng-repeat="news in newsList0">
+
+					   		<a class="title" target="_blank" href="{{news.url}}">{{news.title | limitTo:letterLimit}}</a>
+					   		<span class="date pull-right">{{news.date}}</span>
+					   		<p ng-if="news.images.length > 0" ng-hide="hideImg0">
+					   			<img width="100%" src="{{news.images[0]}}">
+					   		</p>
+					   </li>
+						
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="col-md-5" >
+		  	<div class="panel panel-default">
+		  		<div class="panel-heading">期货 <i class="fa fa-refresh pull-right" ng-click="reload(1)"></i>
+		  		<i class="fa fa-file-image-o pull-right" ng-click="hideImg(1)" title="show/hide images"></i></div>
+		  		<div class="panel-body">
+				    <ul >
+				    <i ng-hide="loaded1" class="fa fa-spin fa-spinner"></i>
+					   <li ng-repeat="news in newsList1">
+					   		<a class="title" target="_blank" href="{{news.url}}">{{news.title | limitTo:letterLimit}}</a>
+					   		<span class="date pull-right">{{news.date}}</span>
+					   		<p ng-if="news.images.length > 0" ng-hide="hideImg1">
+					   			<img width="100%" src="{{news.images[0]}}">
+					   		</p>	
+					   </li>
+						
+					</ul>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+  </body>
+</html>

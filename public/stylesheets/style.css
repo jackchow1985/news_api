@@ -16,3 +16,12 @@ li {
 	text-decoration: none;
 	list-style: none;
 }
+
+.title {
+	font-size: 15px;
+}
+
+i:hover {
+	cursor: pointer;
+	opacity: 0.7;
+}

@@ -8,11 +8,10 @@ router.get('/', function(req, res, next) {
 });
 
 /* GET home page. */
-router.get('/news', function(req, res, next) {
-	request("http://o.go2yd.com/oapi/hkfdt/news_list_for_finance?channel_id=1",function(error, response, html) {
+router.get('/getNews', function(req, res, next) {
+	request("http://o.go2yd.com/oapi/hkfdt/news_list_for_finance?channel_id=" + req.query["chnId"],function(error, response, html) {
 		var jsonObj = JSON.parse(html);
-
-		res.render("news", {jsonObj : jsonObj})
+		res.json(jsonObj)
 		
 	})
   	//res.render('news', { title: 'News from Yidian' });

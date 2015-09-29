@@ -1,23 +1,30 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html ng-app="newsApp">
+  <head >
     <title></title>
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
+    <script src="/javascripts/angular.min.js"></script>
+    <script src="/javascripts/app.js"></script>
   </head>
   <body>
-  	<div class="panel panel-default">
-  		<div class="panel-heading">期货</div>
-  		<div class="panel-body">
-		    <ul>
-				<% for(var i=0; i<jsonObj.result.length; i++) { %>
-				   <li>
-				   		<a target="_blank" href="<%= jsonObj.result[i].url%>"><%= jsonObj.result[i].title%></a>
-				   		<span class="date"><%= jsonObj.result[i].date%></span>
-				   </li>
-				<% } %>
-			</ul>
+  	<div class="row" ng-controller="NewsListController as newsCrtl">
+  		<div class="col-md-5" >
+		  	<div class="panel panel-default">
+		  		<div class="panel-heading">期货</div>
+		  		<div class="panel-body">
+				    <ul >
+						
+						   <li ng-repeat="news in newsCrtl.newsList">
+						   		<!-- <a target="_blank" href="{{news.url}}">{{news.title}}</a> -->
+						   		<span class="date">{{news.date}}</span>
+						   </li>
+						
+					</ul>
+				</div>
+			</div>
 		</div>
+		
 	</div>
   </body>
 </html>
