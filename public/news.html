@@ -46,7 +46,7 @@
 				    <i ng-hide="loaded1" class="fa fa-spin fa-spinner"></i>
 					   <li ng-repeat="news in newsList1">
 					   		<a class="title" target="_blank" href="{{news.url}}">{{news.title | limitTo:letterLimit}}</a>
-					   		<span class="date">{{news.date}}</span>
+					   		<span class="date " am-time-ago="news.date"></span>
 					   		<p ng-if="news.images.length > 0" ng-hide="hideImg1">
 					   			<img width="100%" src="{{news.images[0]}}">
 					   		</p>	
