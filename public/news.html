@@ -2,44 +2,51 @@
 <html ng-app="newsApp">
   <head >
     <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <link rel="stylesheet" href="/stylesheets/bootstrap.min.css">
     <link rel="stylesheet" href="/stylesheets/font-awesome.min.css">
+    
     <script src="/javascripts/angular.min.js"></script>
+    <script src="/javascripts/momentjs.js"></script>
+    <script src="/javascripts/angular-moment.min.js"></script>
     <script src="/javascripts/app.js"></script>
   </head>
   <body ng-controller="NewsListController as newsCrtl"> 
+  <h2>
+  	FDT金融资讯
+  </h2>
   	<div class="row" >
-  		<div class="col-md-5" >
+  		<div class="col-md-6" >
 		  	<div class="panel panel-default">
-		  		<div class="panel-heading">外汇 <i class="fa fa-refresh pull-right" ng-click="reload(0)"></i>
-		  		<i class="fa fa-file-image-o pull-right" ng-click="hideImg(0)" title="show/hide images"></i></div>
+		  		<div class="panel-heading">外汇 <i class="fa fa-refresh pull-right" ng-click="reload(0)">刷新</i> 
+		  		<i class="fa fa-file-image-o pull-right" ng-click="hideImg(0)" title="show/hide images">隐藏图片</i></div>
 		  		<div class="panel-body">
 				    <ul >
 				    <i ng-hide="loaded0" class="fa fa-spin fa-spinner"></i>
 					   <li ng-repeat="news in newsList0">
 
 					   		<a class="title" target="_blank" href="{{news.url}}">{{news.title | limitTo:letterLimit}}</a>
-					   		<span class="date pull-right">{{news.date}}</span>
+					   		<span class="date " am-time-ago="news.date"></span>
 					   		<p ng-if="news.images.length > 0" ng-hide="hideImg0">
 					   			<img width="100%" src="{{news.images[0]}}">
-					   		</p>
+  							</p>
 					   </li>
 						
 					</ul>
 				</div>
 			</div>
 		</div>
-		<div class="col-md-5" >
+		<div class="col-md-6 " >
 		  	<div class="panel panel-default">
-		  		<div class="panel-heading">期货 <i class="fa fa-refresh pull-right" ng-click="reload(1)"></i>
-		  		<i class="fa fa-file-image-o pull-right" ng-click="hideImg(1)" title="show/hide images"></i></div>
+		  		<div class="panel-heading">期货 <i class="fa fa-refresh pull-right" ng-click="reload(1)">刷新</i>
+		  		<i class="fa fa-file-image-o pull-right" ng-click="hideImg(1)" title="show/hide images">隐藏图片</i></div>
 		  		<div class="panel-body">
 				    <ul >
 				    <i ng-hide="loaded1" class="fa fa-spin fa-spinner"></i>
 					   <li ng-repeat="news in newsList1">
 					   		<a class="title" target="_blank" href="{{news.url}}">{{news.title | limitTo:letterLimit}}</a>
-					   		<span class="date pull-right">{{news.date}}</span>
+					   		<span class="date">{{news.date}}</span>
 					   		<p ng-if="news.images.length > 0" ng-hide="hideImg1">
 					   			<img width="100%" src="{{news.images[0]}}">
 					   		</p>	
